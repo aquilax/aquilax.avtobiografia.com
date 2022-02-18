@@ -1,7 +1,7 @@
 function getWebFingerContent({ username, hostname }) {
   return {
     subject: `acct:${username}@${hostname}`,
-    aliases: [`${hostname}/users/${username}`],
+    aliases: [],
     links: [
       {
         rel: "http://webfinger.net/rel/profile-page",
@@ -11,7 +11,7 @@ function getWebFingerContent({ username, hostname }) {
       {
         rel: "self",
         type: "application/activity+json",
-        href: `https://${hostname}/users/${username}`,
+        href: `https://${hostname}/users/${username}/index.json`,
       },
       {
         rel: "http://ostatus.org/schema/1.0/subscribe",
