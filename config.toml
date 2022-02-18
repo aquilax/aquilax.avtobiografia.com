@@ -3,8 +3,10 @@ languageCode = "en-us"
 title = "Hugo Mastodon"
 theme = "mastodon-api"
 
+[taxonomies]
+    user = "users"
+
 [outputs]
     users = ["json"]
     page = ["json"]
     section = ["json"]
-    # home = ["json"]
