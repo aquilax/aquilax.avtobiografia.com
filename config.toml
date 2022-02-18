@@ -1,0 +1,10 @@
+baseURL = "https://aquilax.avtobiografia.com/"
+languageCode = "en-us"
+title = "Hugo Mastodon"
+theme = "mastodon-api"
+
+[outputs]
+    users = ["json"]
+    page = ["json"]
+    section = ["json"]
+    # home = ["json"]

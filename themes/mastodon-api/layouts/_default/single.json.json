@@ -1,0 +1,97 @@
+{
+	"@context": ["https://www.w3.org/ns/activitystreams", "https://w3id.org/security/v1", {
+		"manuallyApprovesFollowers": "as:manuallyApprovesFollowers",
+		"toot": "http://joinmastodon.org/ns#",
+		"featured": {
+			"@id": "toot:featured",
+			"@type": "@id"
+		},
+		"featuredTags": {
+			"@id": "toot:featuredTags",
+			"@type": "@id"
+		},
+		"alsoKnownAs": {
+			"@id": "as:alsoKnownAs",
+			"@type": "@id"
+		},
+		"movedTo": {
+			"@id": "as:movedTo",
+			"@type": "@id"
+		},
+		"schema": "http://schema.org#",
+		"PropertyValue": "schema:PropertyValue",
+		"value": "schema:value",
+		"IdentityProof": "toot:IdentityProof",
+		"discoverable": "toot:discoverable",
+		"Device": "toot:Device",
+		"Ed25519Signature": "toot:Ed25519Signature",
+		"Ed25519Key": "toot:Ed25519Key",
+		"Curve25519Key": "toot:Curve25519Key",
+		"EncryptedMessage": "toot:EncryptedMessage",
+		"publicKeyBase64": "toot:publicKeyBase64",
+		"deviceId": "toot:deviceId",
+		"claim": {
+			"@type": "@id",
+			"@id": "toot:claim"
+		},
+		"fingerprintKey": {
+			"@type": "@id",
+			"@id": "toot:fingerprintKey"
+		},
+		"identityKey": {
+			"@type": "@id",
+			"@id": "toot:identityKey"
+		},
+		"devices": {
+			"@type": "@id",
+			"@id": "toot:devices"
+		},
+		"messageFranking": "toot:messageFranking",
+		"messageType": "toot:messageType",
+		"cipherText": "toot:cipherText",
+		"suspended": "toot:suspended",
+		"focalPoint": {
+			"@container": "@list",
+			"@id": "toot:focalPoint"
+		}
+	}],
+	"id": "{{ .Site.BaseURL }}users/{{ .Title }}",
+	"type": "Person",
+	"following": "{{ .Site.BaseURL }}users/{{ .Title }}/following",
+	"followers": "{{ .Site.BaseURL }}users/{{ .Title }}/followers",
+	"inbox": "{{ .Site.BaseURL }}users/{{ .Title }}/inbox",
+	"outbox": "{{ .Site.BaseURL }}users/{{ .Title }}/outbox",
+	"featured": "{{ .Site.BaseURL }}users/{{ .Title }}/collections/featured",
+	"featuredTags": "{{ .Site.BaseURL }}users/{{ .Title }}/collections/tags",
+	"preferredUsername": "{{ .Title }}",
+	"name": "{{ .Title }}",
+	"summary": "\u003cp\u003eFighting entopy\u003c/p\u003e",
+	"url": "{{ .Site.BaseURL }}@{{ .Title }}",
+	"manuallyApprovesFollowers": false,
+	"discoverable": true,
+	"devices": "{{ .Site.BaseURL }}users/{{ .Title }}/collections/devices",
+	"publicKey": {
+		"id": "{{ .Site.BaseURL }}users/{{ .Title }}#main-key",
+		"owner": "{{ .Site.BaseURL }}users/{{ .Title }}",
+		"publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4wKicIqgIrW0QVHOn9kb\nItsMevLFO1ky63gU2FWErGECH4Vg7DLnQyo+7M2qoV3WSnpkBNeBYDzC3Zb6q95Q\nREk3kmcTLjeQEaSN5fvEqpWzAcL+n3Y/lfXGBZO/XXAgw0uMWDXBYyEqQ0HST8F3\n13B6E0DSZmUa6H+ouYC7azMCrU13jnPaf5MvEK9GXvtbRLlLJ4sCMaOOZTBXdx1O\nJZIRQJIT7HraDonUJvFe5cJ4tRR7ElmnEGkd1A1R5AYL2AuMTsr+DIB4IjSCpXYg\n1+/+HrcMpiwvdsLwIgbB9keWAAkjlylkzttmupod+BZOdfxios69y7MEFiLkFvyb\nDQIDAQAB\n-----END PUBLIC KEY-----\n"
+	},
+	"tag": [],
+	"attachment": [{
+		"type": "PropertyValue",
+		"name": "Bio",
+		"value": "\u003ca href=\"https://www.avtobiografia.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"\u003e\u003cspan class=\"invisible\"\u003ehttps://www.\u003c/span\u003e\u003cspan class=\"\"\u003eavtobiografia.com\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e"
+	}],
+	"endpoints": {
+		"sharedInbox": "{{ .Site.BaseURL }}inbox"
+	},
+	"icon": {
+		"type": "Image",
+		"mediaType": "image/jpeg",
+		"url": "https://media.mastodon.cloud/accounts/avatars/000/024/381/original/91be69129cb50bc7.jpg"
+	},
+	"image": {
+		"type": "Image",
+		"mediaType": "image/jpeg",
+		"url": "https://media.mastodon.cloud/accounts/headers/000/024/381/original/871c434185d1d975.jpg"
+	}
+}
