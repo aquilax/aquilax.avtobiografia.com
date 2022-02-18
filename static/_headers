@@ -1,0 +1,5 @@
+/.well-known/webfinger
+    Content-type: application/jrd+json
+
+/users/*/*.json
+    Content-type: application/jrd+json
