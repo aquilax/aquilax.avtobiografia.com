@@ -65,7 +65,7 @@
 	"featuredTags": "{{ .Site.BaseURL }}users/{{ .Title }}/collections/tags",
 	"preferredUsername": "{{ .Title }}",
 	"name": "{{ .Title }}",
-	"summary": "\u003cp\u003eFighting entopy\u003c/p\u003e",
+	"summary": {{ .Params.Summary | jsonify }},
 	"url": "{{ .Site.BaseURL }}@{{ .Title }}",
 	"manuallyApprovesFollowers": false,
 	"discoverable": true,
@@ -73,13 +73,13 @@
 	"publicKey": {
 		"id": "{{ .Site.BaseURL }}users/{{ .Title }}#main-key",
 		"owner": "{{ .Site.BaseURL }}users/{{ .Title }}",
-		"publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4wKicIqgIrW0QVHOn9kb\nItsMevLFO1ky63gU2FWErGECH4Vg7DLnQyo+7M2qoV3WSnpkBNeBYDzC3Zb6q95Q\nREk3kmcTLjeQEaSN5fvEqpWzAcL+n3Y/lfXGBZO/XXAgw0uMWDXBYyEqQ0HST8F3\n13B6E0DSZmUa6H+ouYC7azMCrU13jnPaf5MvEK9GXvtbRLlLJ4sCMaOOZTBXdx1O\nJZIRQJIT7HraDonUJvFe5cJ4tRR7ElmnEGkd1A1R5AYL2AuMTsr+DIB4IjSCpXYg\n1+/+HrcMpiwvdsLwIgbB9keWAAkjlylkzttmupod+BZOdfxios69y7MEFiLkFvyb\nDQIDAQAB\n-----END PUBLIC KEY-----\n"
+		"publicKeyPem": {{ .Params.PublicKeyPem | jsonify }}
 	},
 	"tag": [],
 	"attachment": [{
 		"type": "PropertyValue",
 		"name": "Bio",
-		"value": "\u003ca href=\"https://www.avtobiografia.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"\u003e\u003cspan class=\"invisible\"\u003ehttps://www.\u003c/span\u003e\u003cspan class=\"\"\u003eavtobiografia.com\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e"
+		"value": {{ .Params.Bio | jsonify }}
 	}],
 	"endpoints": {
 		"sharedInbox": "{{ .Site.BaseURL }}inbox"
@@ -87,11 +87,11 @@
 	"icon": {
 		"type": "Image",
 		"mediaType": "image/jpeg",
-		"url": "https://media.mastodon.cloud/accounts/avatars/000/024/381/original/91be69129cb50bc7.jpg"
+		"url": "{{ .Params.Image }}"
 	},
 	"image": {
 		"type": "Image",
 		"mediaType": "image/jpeg",
-		"url": "https://media.mastodon.cloud/accounts/headers/000/024/381/original/871c434185d1d975.jpg"
+		"url": "{{ .Params.Image }}"
 	}
 }
