@@ -3,8 +3,8 @@ module.exports = {
         `https://${hostname}/users/${username}/index.json`,
     getOutboxUrl: ({ username, hostname }) =>
         `https://${hostname}/users/${username}/outbox/index.json`,
-    getOutboxItemsUrl: ({ username, hostname }) =>
-        `https://${hostname}/users/${username}/outbox/all.json`,
+    getOutboxItemsUrl: ({ username, hostname, pageNum }) =>
+        `https://${hostname}/users/${username}/outbox/${pageNum}.json`,
     getInboxUrl: ({ username, hostname }) =>
         `https://${hostname}/users/${username}/inbox/index.json`,
     getFollowersUrl: ({ username, hostname }) =>
