@@ -2,8 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const { getUserContent } = require("./user");
 const { getWebFingerContent } = require("./webfinger");
-const { getOutboxContent } = require("./outbox");
+const { getOutboxContent, getOutboxItemsContent } = require("./outbox");
 const { getUserProfileContent } = require("./html-user");
+const { getHostMetaContent } = require("./host-meta");
 
 const config = {
     username: "aquilax",
@@ -18,7 +19,7 @@ const config = {
 const root = path.resolve(`${process.cwd()}`);
 const contentDir = path.resolve(`${root}/content`);
 const publicDir = path.resolve(`${root}/public`);
-const webFingerDir = path.resolve(`${publicDir}/.well-known`);
+const wellKnownDir = path.resolve(`${publicDir}/.well-known`);
 const userDir = path.resolve(`${publicDir}/users/${config.username}`);
 const outboxDir = path.resolve(`${userDir}/outbox`);
 const userProfileDir = path.resolve(`${publicDir}/@${config.username}`);
@@ -44,15 +45,17 @@ content = files.sort((a, b) => (a.published < b.published ? 1 : -1));
 mustCreateDirectories([
     publicDir,
     userDir,
-    webFingerDir,
+    wellKnownDir,
     outboxDir,
     userProfileDir,
 ]);
 
 fs.writeFileSync(
-    `${webFingerDir}/webfinger`,
+    `${wellKnownDir}/webfinger`,
     JSON.stringify(getWebFingerContent(config), null, 2)
 );
+
+fs.writeFileSync(`${wellKnownDir}/host-meta`, getHostMetaContent(config));
 
 fs.writeFileSync(
     `${userDir}/index.json`,
@@ -62,6 +65,11 @@ fs.writeFileSync(
 fs.writeFileSync(
     `${outboxDir}/index.json`,
     JSON.stringify(getOutboxContent(config, content), null, 2)
+);
+
+fs.writeFileSync(
+    `${outboxDir}/all.json`,
+    JSON.stringify(getOutboxItemsContent(config, content), null, 2)
 );
 
 fs.writeFileSync(

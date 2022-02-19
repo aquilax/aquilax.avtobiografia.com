@@ -1,4 +1,4 @@
-const { getOutboxUrl, getFollowersUrl } = require("./utils");
+const { getOutboxUrl, getFollowersUrl, getOutboxItemsUrl } = require("./utils");
 const crypto = require("crypto");
 
 function getItemId(item) {
@@ -42,7 +42,7 @@ function getItem(item, config) {
     };
 }
 
-function getOutboxContent(config, items) {
+function getOutboxItemsContent(config, items) {
     const { username, hostname } = config;
 
     return {
@@ -64,12 +64,24 @@ function getOutboxContent(config, items) {
                 Hashtag: "as:Hashtag",
             },
         ],
-        id: getOutboxUrl({ username, hostname }),
+        id: getOutboxItemsUrl({ username, hostname }),
         type: "OrderedCollectionPage",
+        partOf: getOutboxUrl({ username, hostname }),
         orderedItems: [items.map((i) => getItem(i, config))],
     };
 }
 
+function getOutboxContent(config, items) {
+    return {
+        "@context": "https://www.w3.org/ns/activitystreams",
+        id: getOutboxUrl(config),
+        type: "OrderedCollection",
+        totalItems: items.length,
+        first: getOutboxItemsUrl(config),
+    };
+}
+
 module.exports = {
-    getOutboxContent: getOutboxContent,
+    getOutboxItemsContent,
+    getOutboxContent,
 };
