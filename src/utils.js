@@ -9,4 +9,6 @@ module.exports = {
         `https://${hostname}/users/${username}/followers/index.json`,
     getFollowingUrl: ({ username, hostname }) =>
         `https://${hostname}/users/${username}/following/index.json`,
+    getImageUrl: ({ hostname, username, image }) =>
+        `https://${hostname}/image/${username}/${image}`,
 };

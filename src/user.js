@@ -4,6 +4,7 @@ const {
     getUserUrl,
     getFollowingUrl,
     getFollowersUrl,
+    getImageUrl,
 } = require("./utils");
 
 function getUserContent({ username, hostname, ...config }) {
@@ -102,12 +103,12 @@ function getUserContent({ username, hostname, ...config }) {
         icon: {
             type: "Image",
             mediaType: "image/jpeg",
-            url: config.image,
+            url: getImageUrl({ config }),
         },
         image: {
             type: "Image",
             mediaType: "image/jpeg",
-            url: config.image,
+            url: getImageUrl({ config }),
         },
     };
 }

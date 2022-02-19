@@ -3,13 +3,14 @@ const path = require("path");
 const { getUserContent } = require("./user");
 const { getWebFingerContent } = require("./webfinger");
 const { getOutboxContent } = require("./outbox");
+const { getUserProfileContent } = require("./html-user");
 
 const config = {
     username: "aquilax",
     hostname: "aquilax.avtobiografia.com",
     summary: "Fighting entropy",
     bio: "Bio",
-    image: "https://media.mastodon.cloud/accounts/avatars/000/024/381/original/91be69129cb50bc7.jpg",
+    image: "avatar.jpg",
     publicKeyPem:
         "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4wKicIqgIrW0QVHOn9kb\nItsMevLFO1ky63gU2FWErGECH4Vg7DLnQyo+7M2qoV3WSnpkBNeBYDzC3Zb6q95Q\nREk3kmcTLjeQEaSN5fvEqpWzAcL+n3Y/lfXGBZO/XXAgw0uMWDXBYyEqQ0HST8F3\n13B6E0DSZmUa6H+ouYC7azMCrU13jnPaf5MvEK9GXvtbRLlLJ4sCMaOOZTBXdx1O\nJZIRQJIT7HraDonUJvFe5cJ4tRR7ElmnEGkd1A1R5AYL2AuMTsr+DIB4IjSCpXYg\n1+/+HrcMpiwvdsLwIgbB9keWAAkjlylkzttmupod+BZOdfxios69y7MEFiLkFvyb\nDQIDAQAB\n-----END PUBLIC KEY-----\n",
 };
@@ -18,8 +19,9 @@ const root = path.resolve(`${process.cwd()}`);
 const contentDir = path.resolve(`${root}/content`);
 const publicDir = path.resolve(`${root}/public`);
 const webFingerDir = path.resolve(`${publicDir}/.well-known`);
-const userDir = path.resolve(`${publicDir}/users/aquilax`);
+const userDir = path.resolve(`${publicDir}/users/${config.username}`);
 const outboxDir = path.resolve(`${userDir}/outbox`);
+const userProfileDir = path.resolve(`${publicDir}/@${config.username}`);
 
 function mustCreateDirectories(directories) {
     directories.forEach((d) => {
@@ -31,13 +33,21 @@ function mustCreateDirectories(directories) {
 
 const fileNames = fs.readdirSync(contentDir);
 
-const content = [];
+const files = [];
 for (const fileName of fileNames) {
     const file = fs.readFileSync(`${contentDir}/${fileName}`, "utf8");
-    content.push({ fileName, ...JSON.parse(file) });
+    files.push({ fileName, ...JSON.parse(file) });
 }
 
-mustCreateDirectories([publicDir, userDir, webFingerDir, outboxDir]);
+content = files.sort((a, b) => (a.published < b.published ? 1 : -1));
+
+mustCreateDirectories([
+    publicDir,
+    userDir,
+    webFingerDir,
+    outboxDir,
+    userProfileDir,
+]);
 
 fs.writeFileSync(
     `${webFingerDir}/webfinger`,
@@ -52,4 +62,9 @@ fs.writeFileSync(
 fs.writeFileSync(
     `${outboxDir}/index.json`,
     JSON.stringify(getOutboxContent(config, content), null, 2)
+);
+
+fs.writeFileSync(
+    `${userProfileDir}/index.html`,
+    getUserProfileContent(config, content)
 );

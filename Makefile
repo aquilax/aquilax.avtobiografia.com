@@ -2,7 +2,7 @@
 
 all: clean
 	node src/index.js
-	cp static/* public
+	cp -r static/* public
 
 clean:
 	rm -rf public
