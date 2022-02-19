@@ -13,4 +13,6 @@ module.exports = {
         `https://${hostname}/users/${username}/following/index.json`,
     getImageUrl: ({ hostname, username, image }) =>
         `https://${hostname}/image/${username}/${image}`,
+    getUserHtmlProfileUrl: ({ hostname, username }) =>
+        `https://${hostname}/@${username}`,
 };

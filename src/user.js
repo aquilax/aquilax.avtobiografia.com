@@ -5,6 +5,7 @@ const {
     getFollowingUrl,
     getFollowersUrl,
     getImageUrl,
+    getUserHtmlProfileUrl,
 } = require("./utils");
 
 function getUserContent({ username, hostname, ...config }) {
@@ -80,7 +81,7 @@ function getUserContent({ username, hostname, ...config }) {
         preferredUsername: username,
         name: username,
         summary: config.summary,
-        url: `https://${hostname}/@${username}`,
+        url: getUserHtmlProfileUrl({ hostname, username }),
         manuallyApprovesFollowers: false,
         discoverable: true,
         devices: `https://${hostname}/users/${username}/collections/devices`,

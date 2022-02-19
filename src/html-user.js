@@ -1,3 +1,5 @@
+const { getUserHtmlProfileUrl } = require("./utils");
+
 function getUserProfileContent(config, items) {
     const { username, hostname } = config;
     return `<!DOCTYPE html>
@@ -20,7 +22,14 @@ function getUserProfileContent(config, items) {
     <hr/>
     <div class="h-entry">
         <p>${content}</p>
-        <div class="dt-published">${publishedDate}</div>
+        <a rel="self" href="${getUserHtmlProfileUrl({
+            username,
+            hostname,
+        })}">@${username}</a>
+        <time datetime="${publishedDate}" class="dt-published">${publishedDate.substring(
+                0,
+                10
+            )}</time>
     </div>
 `;
         })
