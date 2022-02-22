@@ -1,13 +1,8 @@
 const { getOutboxUrl, getFollowersUrl, getOutboxItemsUrl } = require("./utils");
-const crypto = require("crypto");
-
-function getItemId(item) {
-    return crypto.createHash("md5").update(item.content).digest("hex");
-}
 
 function getItem(item, config) {
     const { username, hostname } = config;
-    const itemId = getItemId(item);
+    const itemId = item.id;
     const itemSensitive = item.sensitive || false;
     const publishedDate = new Date(item.published).toISOString();
     const content = item.content;

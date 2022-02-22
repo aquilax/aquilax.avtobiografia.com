@@ -4,7 +4,9 @@ const { getUserContent } = require("./user");
 const { getWebFingerContent } = require("./webfinger");
 const { getOutboxContent, getOutboxItemsContent } = require("./outbox");
 const { getUserProfileContent } = require("./html-user");
+const { getUserFeedContent } = require("./feed-user");
 const { getHostMetaContent } = require("./host-meta");
+const { prepareItem } = require("./utils");
 
 const config = {
     username: "aquilax",
@@ -12,6 +14,7 @@ const config = {
     summary: "Fighting entropy",
     bio: "Bio",
     image: "avatar.jpg",
+    language: "en",
     publicKeyPem:
         "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4wKicIqgIrW0QVHOn9kb\nItsMevLFO1ky63gU2FWErGECH4Vg7DLnQyo+7M2qoV3WSnpkBNeBYDzC3Zb6q95Q\nREk3kmcTLjeQEaSN5fvEqpWzAcL+n3Y/lfXGBZO/XXAgw0uMWDXBYyEqQ0HST8F3\n13B6E0DSZmUa6H+ouYC7azMCrU13jnPaf5MvEK9GXvtbRLlLJ4sCMaOOZTBXdx1O\nJZIRQJIT7HraDonUJvFe5cJ4tRR7ElmnEGkd1A1R5AYL2AuMTsr+DIB4IjSCpXYg\n1+/+HrcMpiwvdsLwIgbB9keWAAkjlylkzttmupod+BZOdfxios69y7MEFiLkFvyb\nDQIDAQAB\n-----END PUBLIC KEY-----\n",
     itemsPerPage: 20,
@@ -47,7 +50,9 @@ for (const fileName of fileNames) {
     files.push({ fileName, ...JSON.parse(file) });
 }
 
-content = files.sort((a, b) => (a.published < b.published ? 1 : -1));
+content = files
+    .map(prepareItem)
+    .sort((a, b) => (a.published < b.published ? 1 : -1));
 
 mustCreateDirectories([
     publicDir,
@@ -89,4 +94,9 @@ fs.writeFileSync(
 fs.writeFileSync(
     `${userProfileDir}/index.html`,
     getUserProfileContent(config, content)
+);
+
+fs.writeFileSync(
+    `${userProfileDir}/feed.json`,
+    JSON.stringify(getUserFeedContent(config, content), null, 2)
 );

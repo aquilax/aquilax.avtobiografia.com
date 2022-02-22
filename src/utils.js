@@ -1,3 +1,13 @@
+const crypto = require("crypto");
+
+function getItemId(item) {
+    return crypto.createHash("md5").update(item.content).digest("hex");
+}
+
+function prepareItem(item) {
+    return { id: getItemId(item), ...item };
+}
+
 module.exports = {
     getUserUrl: ({ username, hostname }) =>
         `https://${hostname}/users/${username}/index.json`,
@@ -15,4 +25,8 @@ module.exports = {
         `https://${hostname}/image/${username}/${image}`,
     getUserHtmlProfileUrl: ({ hostname, username }) =>
         `https://${hostname}/@${username}`,
+    getUserJsonFeedUrl: ({ username, hostname }) =>
+        `https://${hostname}/@${username}/feed.json`,
+
+    prepareItem,
 };
