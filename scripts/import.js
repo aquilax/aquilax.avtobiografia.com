@@ -1,5 +1,9 @@
 var fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
+
+const getItemId = (item) =>
+    crypto.createHash("md5").update(item.content).digest("hex");
 
 const regexLine = /\* ([\d\-\s:]{19})\s(.+)/;
 
@@ -27,12 +31,11 @@ lines
         if (m === null) {
             return [];
         }
-        return [
-            {
-                published: new Date(m[1]).toISOString(),
-                content: parseContent(m[2]),
-            },
-        ];
+        const item = {
+            published: new Date(m[1]).toISOString(),
+            content: parseContent(m[2]),
+        };
+        return [{ ...item, id: getItemId(item) }];
     })
     .forEach((entry) => {
         filename = `${contentDir}/${getFilename(entry.published)}.json`;

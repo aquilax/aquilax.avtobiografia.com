@@ -6,11 +6,12 @@ const { getOutboxContent, getOutboxItemsContent } = require("./outbox");
 const { getUserProfileContent } = require("./html-user");
 const { getUserFeedContent } = require("./feed-user");
 const { getHostMetaContent } = require("./host-meta");
-const { prepareItem } = require("./utils");
+const { getItemHTMLContent } = require("./html-item");
 
 const config = {
     username: "aquilax",
     hostname: "aquilax.avtobiografia.com",
+    profilePage: "http://www.avtobiografia.com/",
     summary: "Fighting entropy",
     bio: "Bio",
     image: "avatar.jpg",
@@ -50,9 +51,7 @@ for (const fileName of fileNames) {
     files.push({ fileName, ...JSON.parse(file) });
 }
 
-content = files
-    .map(prepareItem)
-    .sort((a, b) => (a.published < b.published ? 1 : -1));
+content = files.sort((a, b) => (a.published < b.published ? 1 : -1));
 
 mustCreateDirectories([
     publicDir,
@@ -86,16 +85,27 @@ pages.forEach((items, pageNum) => {
     );
 });
 
+// ActivityStream Outbox
 fs.writeFileSync(
     `${outboxDir}/index.json`,
     JSON.stringify(getOutboxContent(config, content), null, 2)
 );
 
+// Profile HTML Home page
 fs.writeFileSync(
     `${userProfileDir}/index.html`,
     getUserProfileContent(config, content)
 );
 
+// Items HTML pages
+content.forEach((item) => {
+    fs.writeFileSync(
+        `${userProfileDir}/${item.id}.html`,
+        getItemHTMLContent(config, item)
+    );
+});
+
+// JSON Feed
 fs.writeFileSync(
     `${userProfileDir}/feed.json`,
     JSON.stringify(getUserFeedContent(config, content), null, 2)

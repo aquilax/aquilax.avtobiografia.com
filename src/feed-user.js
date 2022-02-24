@@ -1,4 +1,8 @@
-const { getUserHtmlProfileUrl, getUserJsonFeedUrl } = require("./utils");
+const {
+    getUserHtmlProfileUrl,
+    getUserJsonFeedUrl,
+    getItemHtmlUrl,
+} = require("./utils");
 
 function getUserFeedContent(config, content) {
     const { username, hostname, language } = config;
@@ -16,6 +20,7 @@ function getUserFeedContent(config, content) {
         items: content.map((i) => ({
             id: i.id,
             content_html: i.content,
+            url: getItemHtmlUrl({ hostname, username, id: i.id }),
         })),
     };
 }

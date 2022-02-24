@@ -1,25 +1,12 @@
-const { getUserHtmlProfileUrl, getUserJsonFeedUrl } = require("./utils");
+const {
+    getUserHtmlProfileUrl,
+    getItemHtmlUrl,
+    getHTMLTemplate,
+} = require("./utils");
 
 function getUserProfileContent(config, items) {
-    const { username, hostname, language } = config;
-    return `<!DOCTYPE html>
-<html lang="${language}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width initial-scale=1">
-    <title>${username}</title>
-    <link rel="alternate" title="${username}" type="application/feed+json" href="${getUserJsonFeedUrl(
-        { username, hostname }
-    )}" />
-</head>
-<body>
-    <h1>
-        ${username}
-        <small>
-            @${username}@${hostname}
-        </small>
-    </h1>
-    <section class="h-feed">${items
+    const { username, hostname } = config;
+    const body = `<section class="h-feed">${items
         .map((item) => {
             const publishedDate = new Date(item.published).toISOString();
             const content = item.content;
@@ -27,20 +14,27 @@ function getUserProfileContent(config, items) {
     <hr/>
     <div class="h-entry">
         <p>${content}</p>
-        <a rel="self" href="${getUserHtmlProfileUrl({
-            username,
+        <a rel="self" class="h-card u-url u-uid p-name" href="${getUserHtmlProfileUrl(
+            {
+                username,
+                hostname,
+            }
+        )}">@${username}</a>
+        <a class="u-url" href="${getItemHtmlUrl({
             hostname,
-        })}">@${username}</a>
-        <time datetime="${publishedDate}" class="dt-published">${publishedDate.substring(
+            username,
+            id: item.id,
+        })}">
+            <time datetime="${publishedDate}" class="dt-published">${publishedDate.substring(
                 0,
                 10
             )}</time>
+        </a>
     </div>
 `;
         })
-        .join("\n")}</section>
-</body>
-</html>`;
+        .join("\n")}</section>`;
+    return getHTMLTemplate({ ...config, title: username, body });
 }
 
 module.exports = {

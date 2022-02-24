@@ -1,11 +1,32 @@
-const crypto = require("crypto");
+const getUserJsonFeedUrl = ({ username, hostname }) =>
+    `https://${hostname}/@${username}/feed.json`;
 
-function getItemId(item) {
-    return crypto.createHash("md5").update(item.content).digest("hex");
-}
-
-function prepareItem(item) {
-    return { id: getItemId(item), ...item };
+function getHTMLTemplate({
+    language,
+    username,
+    profilePage,
+    hostname,
+    body,
+    title,
+}) {
+    return `<!DOCTYPE html>
+<html lang="${language}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title>${title}</title>
+    <link rel="me" href="${profilePage}" />
+    <link rel="alternate" title="${username}" type="application/feed+json" href="${getUserJsonFeedUrl(
+        { username, hostname }
+    )}" />
+</head>
+<body>
+    <header>
+        <h1>${username}<small>@${username}@${hostname}</small></h1>
+    </header>
+    ${body}
+</body>
+</html>`;
 }
 
 module.exports = {
@@ -25,8 +46,8 @@ module.exports = {
         `https://${hostname}/image/${username}/${image}`,
     getUserHtmlProfileUrl: ({ hostname, username }) =>
         `https://${hostname}/@${username}`,
-    getUserJsonFeedUrl: ({ username, hostname }) =>
-        `https://${hostname}/@${username}/feed.json`,
-
-    prepareItem,
+    getItemHtmlUrl: ({ hostname, username, id }) =>
+        `https://${hostname}/@${username}/${id}.html`,
+    getHTMLTemplate,
+    getUserJsonFeedUrl,
 };
