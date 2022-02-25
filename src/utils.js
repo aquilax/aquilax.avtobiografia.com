@@ -1,6 +1,12 @@
 const getUserJsonFeedUrl = ({ username, hostname }) =>
     `https://${hostname}/@${username}/feed.json`;
 
+const getUserHtmlProfileUrl = ({ hostname, username }) =>
+    `https://${hostname}/@${username}`;
+
+const getItemHtmlUrl = ({ hostname, username, id }) =>
+    `https://${hostname}/@${username}/${id}.html`;
+
 function getHTMLTemplate({
     language,
     username,
@@ -19,14 +25,47 @@ function getHTMLTemplate({
     <link rel="alternate" title="${username}" type="application/feed+json" href="${getUserJsonFeedUrl(
         { username, hostname }
     )}" />
+    <style>.wrapper{max-width:40em; margin:0 auto; line-height: 1.2em}</style>
 </head>
 <body>
-    <header>
-        <h1>${username}<small>@${username}@${hostname}</small></h1>
-    </header>
-    ${body}
+    <div class="wrapper">
+        <header>
+            <h1>
+                <a href="${getUserHtmlProfileUrl({ hostname, username })}">
+                    ${username}
+                </a>
+            </h1>
+            <small>@${username}@${hostname}</small>
+        </header>
+        ${body}
+    <div class="wrapper">
 </body>
 </html>`;
+}
+
+function getItemHTMLTemplate({ username, hostname, item }) {
+    const publishedDate = new Date(item.published).toISOString();
+    const humanDate = publishedDate.substring(0, 10);
+    const content = item.content;
+
+    return `<hr/>
+    <div class="h-entry">
+        <p>${content}</p>
+        <a rel="self" class="h-card u-url u-uid p-name" href="${getUserHtmlProfileUrl(
+            {
+                username,
+                hostname,
+            }
+        )}">@${username}</a>
+        <a class="u-url" href="${getItemHtmlUrl({
+            hostname,
+            username,
+            id: item.id,
+        })}">
+            <time datetime="${publishedDate}" class="dt-published">${humanDate}</time>
+        </a>
+    </div>
+`;
 }
 
 module.exports = {
@@ -44,10 +83,9 @@ module.exports = {
         `https://${hostname}/users/${username}/following/index.json`,
     getImageUrl: ({ hostname, username, image }) =>
         `https://${hostname}/image/${username}/${image}`,
-    getUserHtmlProfileUrl: ({ hostname, username }) =>
-        `https://${hostname}/@${username}`,
-    getItemHtmlUrl: ({ hostname, username, id }) =>
-        `https://${hostname}/@${username}/${id}.html`,
+    getUserHtmlProfileUrl,
     getHTMLTemplate,
+    getItemHTMLTemplate,
     getUserJsonFeedUrl,
+    getItemHtmlUrl,
 };
