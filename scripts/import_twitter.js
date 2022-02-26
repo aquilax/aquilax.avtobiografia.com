@@ -19,6 +19,8 @@ const parseContent = (content) =>
 
 const getFilename = (date) => date.replace(/[^\dZ]/g, "-");
 
+const fixLanguage = (lang) => (["ru", "und"].includes(lang) ? "bg" : lang);
+
 const fileName = process.argv[2];
 const rawData = fs.readFileSync(fileName);
 const tweets = JSON.parse(rawData);
@@ -33,7 +35,7 @@ tweets
                 name: "twitter",
                 url: `https://twitter.com/${username}/status/${t.tweet.id_str}`,
             },
-            lang: t.tweet.lang,
+            lang: fixLanguage(t.tweet.lang),
             published: new Date(t.tweet.created_at).toISOString(),
             content: parseContent(t.tweet.full_text),
         };
