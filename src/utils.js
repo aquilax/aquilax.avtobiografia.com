@@ -31,12 +31,12 @@ function getHTMLTemplate({
     <style>
         body{font-family: Verdana, Geneva, Tahoma, sans-serif; background: #cece;}
         header{background: #fff; padding: .4em}
-        .wrapper{max-width:40em; margin:0 auto; line-height: 1.2em}
+        .wrapper{max-width:40em; margin:0 auto;}
         ul.h-feed{padding: 0}
         ul.h-feed li{list-style:none; border-bottom: 1px solid #cecece; margin-bottom: 1em; padding: .4em; background:#fff}
         ul.h-feed li .row{display:flex; gap: 1em}
         ul.h-feed li .row p{margin-top:0}
-        .row p {overflow: hidden; text-overflow: ellipsis;}
+        .row p {overflow: hidden; text-overflow: ellipsis; line-height:1.4em}
         .meta {font-size:.8em}
     </style>
 </head>
