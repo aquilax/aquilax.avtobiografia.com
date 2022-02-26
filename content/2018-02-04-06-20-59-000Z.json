@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "twitter",
+    "url": "https://twitter.com/aquilax/status/960035437938139137"
+  },
+  "lang": "en",
+  "published": "2018-02-04T06:20:59.000Z",
+  "content": "@lemonit The second one gives more flexibility, because you can easily add support for multiple conditions for filtering e.g. ?status=pending,accepted,rejected",
+  "id": "31d3b7972d1db8f849bc4e158fc759c1"
+}

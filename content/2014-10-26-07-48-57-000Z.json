@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "twitter",
+    "url": "https://twitter.com/aquilax/status/526279301071921153"
+  },
+  "lang": "en",
+  "published": "2014-10-26T07:48:57.000Z",
+  "content": "@cloudfront is really not great at caching large pages. My miss ratio is ~75% for 1-yo static site with 2 yrs expire for pages.",
+  "id": "36f6b03e6952801c12da187886105308"
+}

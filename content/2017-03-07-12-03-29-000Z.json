@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "twitter",
+    "url": "https://twitter.com/aquilax/status/839084083703590913"
+  },
+  "lang": "en",
+  "published": "2017-03-07T12:03:29.000Z",
+  "content": "TIL `git checkout -` works like `cd -` and checks out the last branch you were on.",
+  "id": "7d78e2b97600c00059214d9fedd564c0"
+}

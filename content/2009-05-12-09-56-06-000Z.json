@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "twitter",
+    "url": "https://twitter.com/aquilax/status/1772077657"
+  },
+  "lang": "bg",
+  "published": "2009-05-12T09:56:06.000Z",
+  "content": "Postgre-то се държи много странно на моменти, като примерно че индекс по timestamp поле при  &lt;= търсене не ми работи.",
+  "id": "637d103bd3bd36d5abd7662f87492487"
+}

@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "twitter",
+    "url": "https://twitter.com/aquilax/status/383127508658298880"
+  },
+  "lang": "en",
+  "published": "2013-09-26T07:14:50.000Z",
+  "content": "@sandelius <a href=\"http://t.co/2KtiYAp5cD\" rel=\"nofollow noopener noreferrer\">http://t.co/2KtiYAp5cD</a> \"word\" should be escaped for regexp special chars like \\(){}+* a.s.o.",
+  "id": "03233c1f47745b6b1908342962a16313"
+}

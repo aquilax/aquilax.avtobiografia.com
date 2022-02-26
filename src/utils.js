@@ -35,6 +35,7 @@ function getHTMLTemplate({
         ul.h-feed li{list-style:none; border-bottom: 1px solid #cecece; margin-bottom: 1em; padding-bottom: .4em;}
         ul.h-feed li .row{display:flex; gap: 1em}
         ul.h-feed li .row p{margin-top:0}
+        .row p {overflow: hidden; text-overflow: ellipsis;}
     </style>
 </head>
 <body>

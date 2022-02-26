@@ -36,6 +36,7 @@ lines
                 name: "vimwiki",
                 url: "https://wiki.bazadanni.com/quotelog/",
             },
+            lang: "en",
             published: new Date(m[1]).toISOString(),
             content: parseContent(m[2]),
         };
