@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "github",
+    "url": "https://github.com/aquilax/go-stemmer"
+  },
+  "lang": "en",
+  "published": "2019-12-25T11:45:59.000Z",
+  "content": "New repository: <a href=\"https://github.com/aquilax/go-stemmer\" rel=\"nofollow noopener noreferrer\">aquilax/go-stemmer</a> - Bulgarian language stemmer library in go for the BULSTEM rules",
+  "id": "6aeba51b3a23d80f05e0592582c9890e"
+}

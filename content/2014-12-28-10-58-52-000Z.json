@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "github",
+    "url": "https://github.com/aquilax/go-summary"
+  },
+  "lang": "en",
+  "published": "2014-12-28T10:58:52.000Z",
+  "content": "New repository: <a href=\"https://github.com/aquilax/go-summary\" rel=\"nofollow noopener noreferrer\">aquilax/go-summary</a> - Naive text summarization for Go",
+  "id": "7f93a9715298fb1a8bab5b3d80cf917d"
+}

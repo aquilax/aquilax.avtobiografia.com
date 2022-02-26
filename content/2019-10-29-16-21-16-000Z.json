@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "github",
+    "url": "https://github.com/aquilax/grafana-ledger-data-source-server"
+  },
+  "lang": "en",
+  "published": "2019-10-29T16:21:16.000Z",
+  "content": "New repository: <a href=\"https://github.com/aquilax/grafana-ledger-data-source-server\" rel=\"nofollow noopener noreferrer\">aquilax/grafana-ledger-data-source-server</a> - Grafana server for ledger data written in Go",
+  "id": "7360c60592ee4aa4ad1b7e0432de8590"
+}

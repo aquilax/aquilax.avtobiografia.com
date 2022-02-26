@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "github",
+    "url": "https://github.com/aquilax/go-wikia"
+  },
+  "lang": "en",
+  "published": "2014-08-07T08:30:10.000Z",
+  "content": "New repository: <a href=\"https://github.com/aquilax/go-wikia\" rel=\"nofollow noopener noreferrer\">aquilax/go-wikia</a> - Go library to access Wikia's public API",
+  "id": "247b3e2368b594cde3813761dbc3788a"
+}

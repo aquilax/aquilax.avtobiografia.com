@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "github",
+    "url": "https://github.com/aquilax/csvdelta"
+  },
+  "lang": "en",
+  "published": "2021-05-28T06:56:16.000Z",
+  "content": "New repository: <a href=\"https://github.com/aquilax/csvdelta\" rel=\"nofollow noopener noreferrer\">aquilax/csvdelta</a> - Command line tool to calculate delta values between subsequent rows in csv",
+  "id": "1234c749eeaebf8540da2bb657e782d8"
+}

@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "github",
+    "url": "https://github.com/aquilax/indexnow"
+  },
+  "lang": "en",
+  "published": "2021-12-02T03:54:43.000Z",
+  "content": "New repository: <a href=\"https://github.com/aquilax/indexnow\" rel=\"nofollow noopener noreferrer\">aquilax/indexnow</a> - Go package for submitting URLs for crawling using the IndexNow protocol",
+  "id": "94ca82d4596f4c9530c7b575c35c4551"
+}

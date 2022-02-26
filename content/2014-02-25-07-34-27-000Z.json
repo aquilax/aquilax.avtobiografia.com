@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "github",
+    "url": "https://github.com/aquilax/cyrslug"
+  },
+  "lang": "en",
+  "published": "2014-02-25T07:34:27.000Z",
+  "content": "New repository: <a href=\"https://github.com/aquilax/cyrslug\" rel=\"nofollow noopener noreferrer\">aquilax/cyrslug</a> - Cyrillic slug transliteration library for Go",
+  "id": "3728d1c5f8e910a8b29e0bb56a4501fe"
+}
