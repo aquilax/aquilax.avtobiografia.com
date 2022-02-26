@@ -3,6 +3,7 @@
     "name": "vimwiki",
     "url": "https://wiki.bazadanni.com/quotelog/"
   },
+  "lang": "en",
   "published": "2021-09-05T06:38:25.000Z",
   "content": "You cannot reduce the complexity of your problem by increasing the complexity of your language. <a href=\"https://www.fredrikholmqvist.com/posts/brooks-wirth-go/\" rel=\"nofollow noopener noreferrer\">Brooks, Wirth and Go. | Fredrik Holmqvist</a>",
   "id": "dc8354abb41b3273a8e78678e8013d26"

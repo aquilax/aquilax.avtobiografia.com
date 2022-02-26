@@ -26,7 +26,7 @@ const tweets = JSON.parse(rawData);
 const username = "aquilax";
 
 tweets
-    .filter((t) => !t.tweet.retweeted)
+    .filter((t) => !t.tweet.retweeted && !t.tweet.full_text.startsWith("RT @"))
     .map((t) => {
         item = {
             source: {

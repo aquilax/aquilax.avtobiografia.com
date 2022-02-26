@@ -73,7 +73,7 @@ function getItemHTMLTemplate({ username, hostname, image, item }) {
                     })}" width="48" alt="${username}"/>
                 </a>
             </div>
-            <p>${content}</p>
+            <p lang=${item.lang}>${content}</p>
         </div>
         <div class="meta">
             <a rel="self" class="h-card u-url u-uid p-name" href="${getUserHtmlProfileUrl(

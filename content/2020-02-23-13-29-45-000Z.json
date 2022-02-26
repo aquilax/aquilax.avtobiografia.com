@@ -3,6 +3,7 @@
     "name": "vimwiki",
     "url": "https://wiki.bazadanni.com/quotelog/"
   },
+  "lang": "en",
   "published": "2020-02-23T13:29:45.000Z",
   "content": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. (Brian Kernighan) <a href=\"https://github.com/dwmkerr/hacker-laws#kernighans-law\" rel=\"nofollow noopener noreferrer\">dwmkerr/hacker-laws: 💻📖 Laws, Theories, Principles and Patterns that developers will find useful. #hackerlaws</a>",
   "id": "c4916594381bc21aa85156a6d31bda9f"
