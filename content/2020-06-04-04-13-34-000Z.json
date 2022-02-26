@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2020-06-04T04:13:34.000Z",
   "content": "Scrum is a way to take a below average or poor developer and turn them into an average developer.It's also great at taking great developers and turning them into average developers. <a href=\"https://news.ycombinator.com/item?id=23233683\" rel=\"nofollow noopener noreferrer\">Leave scrum to rugby, I like getting stuff done | Hacker News</a>",
   "id": "0c7a13a887973cd2741fb42fdf341e2d"

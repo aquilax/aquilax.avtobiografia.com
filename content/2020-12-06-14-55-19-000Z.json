@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2020-12-06T14:55:19.000Z",
   "content": "I applaud this, but I also advise against this for your career. Unless the change you're making has immediate and significant business benefits, from a PM/EM perspective you're 1) wasting time 2) potentially introducing bugs. The correct move is to wait until the org is so bogged down with tech debt that meaningful progress cannot be made, then switch companies/teams. <a href=\"https://news.ycombinator.com/item?id=25237341\" rel=\"nofollow noopener noreferrer\">Always leave the code better than you found it | Hacker News</a>",
   "id": "5e31d4428c03c61344808c6c8cb42692"

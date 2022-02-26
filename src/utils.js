@@ -7,6 +7,9 @@ const getUserHtmlProfileUrl = ({ hostname, username }) =>
 const getItemHtmlUrl = ({ hostname, username, id }) =>
     `https://${hostname}/@${username}/${id}.html`;
 
+const getImageUrl = ({ hostname, username, image }) =>
+    `https://${hostname}/image/${username}/${image}`;
+
 function getHTMLTemplate({
     language,
     username,
@@ -25,7 +28,14 @@ function getHTMLTemplate({
     <link rel="alternate" title="${username}" type="application/feed+json" href="${getUserJsonFeedUrl(
         { username, hostname }
     )}" />
-    <style>.wrapper{max-width:40em; margin:0 auto; line-height: 1.2em}</style>
+    <style>
+        body{font-family: Verdana, Geneva, Tahoma, sans-serif;}
+        .wrapper{max-width:40em; margin:0 auto; line-height: 1.2em}
+        ul.h-feed{padding: 0}
+        ul.h-feed li{list-style:none; border-bottom: 1px solid #cecece; margin-bottom: 1em; padding-bottom: .4em;}
+        ul.h-feed li .row{display:flex; gap: 1em}
+        ul.h-feed li .row p{margin-top:0}
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -43,28 +53,48 @@ function getHTMLTemplate({
 </html>`;
 }
 
-function getItemHTMLTemplate({ username, hostname, item }) {
+function getItemHTMLTemplate({ username, hostname, image, item }) {
     const publishedDate = new Date(item.published).toISOString();
     const humanDate = publishedDate.substring(0, 10);
     const content = item.content;
 
-    return `<hr/>
-    <div class="h-entry">
-        <p>${content}</p>
-        <a rel="self" class="h-card u-url u-uid p-name" href="${getUserHtmlProfileUrl(
-            {
-                username,
+    return `<li class="h-entry" id="post-id-${item.id}">
+        <div class="row">
+            <div class="author u-author h-card">
+                <a href="${getUserHtmlProfileUrl({
+                    username,
+                    hostname,
+                })}" class="u-url">
+                    <img class="u-photo p-name" src="${getImageUrl({
+                        username,
+                        hostname,
+                        image,
+                    })}" width="48" alt="${username}"/>
+                </a>
+            </div>
+            <p>${content}</p>
+        </div>
+        <div class="meta">
+            <a rel="self" class="h-card u-url u-uid p-name" href="${getUserHtmlProfileUrl(
+                {
+                    username,
+                    hostname,
+                }
+            )}">@${username}</a>
+            |
+            <a class="u-url" href="${getItemHtmlUrl({
                 hostname,
-            }
-        )}">@${username}</a>
-        <a class="u-url" href="${getItemHtmlUrl({
-            hostname,
-            username,
-            id: item.id,
-        })}">
-            <time datetime="${publishedDate}" class="dt-published">${humanDate}</time>
-        </a>
-    </div>
+                username,
+                id: item.id,
+            })}">
+                <time datetime="${publishedDate}" class="dt-published">${humanDate}</time>
+            </a>
+            |
+            <a href="${item.source.url}" rel="nofollow noopener noreferrer">${
+        item.source.name
+    }</a>
+        </div>
+    </li>
 `;
 }
 
@@ -81,8 +111,7 @@ module.exports = {
         `https://${hostname}/users/${username}/followers/index.json`,
     getFollowingUrl: ({ username, hostname }) =>
         `https://${hostname}/users/${username}/following/index.json`,
-    getImageUrl: ({ hostname, username, image }) =>
-        `https://${hostname}/image/${username}/${image}`,
+    getImageUrl,
     getUserHtmlProfileUrl,
     getHTMLTemplate,
     getItemHTMLTemplate,

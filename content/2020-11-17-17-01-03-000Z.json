@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2020-11-17T17:01:03.000Z",
   "content": "If there's one phenomenon that marks the modern era more than any other, it's the replacement of the relational with the transactional. <a href=\"https://news.ycombinator.com/item?id=24978911\" rel=\"nofollow noopener noreferrer\">The rise of platonic co-parenting | Hacker News</a>",
   "id": "6463b9c26cd4ff70581258a2fac37749"

@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2021-03-03T05:35:53.000Z",
   "content": "The advice about interviewing being exhausting is spot-on. Recruiting, interviewing, and hiring candidates is a very different type of work than most of us engineering types enjoy. Until you’ve developed a thick skin, it can also be emotionally draining to reject candidate after candidate.  <a href=\"https://news.ycombinator.com/item?id=26060099\" rel=\"nofollow noopener noreferrer\">I'm an interviewer at my company and burnt out | Hacker News</a>",
   "id": "8f0d281616555f76b41e0e110fa58590"

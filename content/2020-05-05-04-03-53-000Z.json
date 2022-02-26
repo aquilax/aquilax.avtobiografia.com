@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2020-05-05T04:03:53.000Z",
   "content": "Should read `man bash`",
   "id": "6e8fe7addc9c88b1f89e6e8df24d43bb"

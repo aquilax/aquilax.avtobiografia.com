@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2020-08-30T05:09:11.000Z",
   "content": "Your developer won’t get hit by a bus. They’ll get hired by Netflix! <a href=\"https://www.neomindlabs.com/post/your-developer-wont-get-hit-by-a-bus-theyll-get-hired-by-netflix\" rel=\"nofollow noopener noreferrer\">Your developer won’t get hit by a bus. They’ll get hired by Netflix!</a>",
   "id": "40bda212491395f78c06332a5fc34a72"

@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2022-02-06T04:49:29.000Z",
   "content": "Internally at these companies, there's also no reason for developers to care about quality. It's not rewarded by the managers. <a href=\"https://news.ycombinator.com/item?id=30160282\" rel=\"nofollow noopener noreferrer\">Ask HN: How do you explain the sloppiness of modern software? | Hacker News</a>",
   "id": "db882042807950cfef1c2c4cd86ef951"

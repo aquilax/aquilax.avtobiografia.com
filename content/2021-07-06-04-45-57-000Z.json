@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2021-07-06T04:45:57.000Z",
   "content": "Python is the second-best language for everything.",
   "id": "3a1064daef38eb6d2a5bcb4ef345fe8c"

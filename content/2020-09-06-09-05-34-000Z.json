@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2020-09-06T09:05:34.000Z",
   "content": "The contradiction in management is that you must somehow know what's going on, but it is not helpful to interfere constantly. <a href=\"https://news.ycombinator.com/item?id=24258519\" rel=\"nofollow noopener noreferrer\">Managing Teams Through Interfaces | Hacker News</a>",
   "id": "df5cb05dee166f3b664ccf8d96072cb8"

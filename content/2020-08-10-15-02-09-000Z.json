@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2020-08-10T15:02:09.000Z",
   "content": "Are employees paid a proportional amount to the value they bring to their organization? I would say no. I do not believe every talented European is 40% as capable as the average developer in the US. I do not believe that the same software engineer that made $10k in India, suddenly brings 10x as much value due to a 1 year masters, once they move to the US. <a href=\"https://news.ycombinator.com/item?id=23927974\" rel=\"nofollow noopener noreferrer\">Ask HN: Should a remote employee’s salary be tied to their physical location? | Hacker News</a>",
   "id": "a64ff46878c3292ad4b40e1454474bce"

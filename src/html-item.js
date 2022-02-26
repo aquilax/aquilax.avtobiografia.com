@@ -1,12 +1,10 @@
 const { getHTMLTemplate, getItemHTMLTemplate } = require("./utils");
 
 function getItemHTMLContent(config, item) {
-    const { username, hostname } = config;
-    const body = `<section>${getItemHTMLTemplate({
-        username,
-        hostname,
+    const body = `<ul class="h-feed">${getItemHTMLTemplate({
+        ...config,
         item,
-    })}</section>`;
+    })}</ul>`;
     return getHTMLTemplate({
         ...config,
         title: item.id,

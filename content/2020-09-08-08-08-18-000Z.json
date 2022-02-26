@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2020-09-08T08:08:18.000Z",
   "content": "trust is the use of any assumptions about the behavior of other people <a href=\"https://vitalik.ca/general/2020/08/20/trust.html\" rel=\"nofollow noopener noreferrer\">Trust Models</a>",
   "id": "b0412bc4a8d2c33a6e00aea30d8953fc"

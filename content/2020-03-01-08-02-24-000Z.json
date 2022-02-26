@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2020-03-01T08:02:24.000Z",
   "content": "When a measure becomes a target, it ceases to be a good measure — Goodhart's law as phrased by Marilyn Strathern <a href=\"https://news.ycombinator.com/item?id=22399693\" rel=\"nofollow noopener noreferrer\">The Original Sin of Software Metrics (2014) | Hacker News</a>",
   "id": "975fa9f3325cf10bb11166f0b2b148b7"

@@ -32,6 +32,10 @@ lines
             return [];
         }
         const item = {
+            source: {
+                name: "vimwiki",
+                url: "https://wiki.bazadanni.com/quotelog/",
+            },
             published: new Date(m[1]).toISOString(),
             content: parseContent(m[2]),
         };

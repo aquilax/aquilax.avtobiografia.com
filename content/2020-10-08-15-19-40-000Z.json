@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2020-10-08T15:19:40.000Z",
   "content": "Processing TV schedules",
   "id": "6932cef2061a08b46d4cfa24236c05c1"

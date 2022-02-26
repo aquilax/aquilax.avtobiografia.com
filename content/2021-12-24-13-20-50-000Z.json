@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2021-12-24T13:20:50.000Z",
   "content": "Created https://github.com/gosimple/slug/pull/66",
   "id": "b931e05b135314fac44acc777ab1486b"

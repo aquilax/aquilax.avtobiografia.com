@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
   "published": "2020-03-15T12:12:11.000Z",
   "content": "#til https://www.edelweiss.plus book catalog platform",
   "id": "7324b35d4b6bbf2de3d56fb20a3ad6c9"
