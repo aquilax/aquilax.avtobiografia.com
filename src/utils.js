@@ -93,7 +93,7 @@ function getItemHTMLTemplate({ username, hostname, image, item }) {
                 <time datetime="${publishedDate}" class="dt-published">${humanDate}</time>
             </a>
             |
-            <a href="${item.source.url}" rel="nofollow noopener noreferrer">${
+            #<a href="${item.source.url}" rel="nofollow noopener noreferrer">${
         item.source.name
     }</a>
         </div>
