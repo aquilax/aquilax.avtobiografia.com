@@ -17,7 +17,7 @@ function getWebFingerContent({ username, hostname, image }) {
             },
             {
                 rel: "http://webfinger.net/rel/avatar",
-                href: getImageUrl(hostname, username, image),
+                href: getImageUrl({ hostname, username, image }),
             },
             {
                 rel: "http://ostatus.org/schema/1.0/subscribe",
