@@ -3,7 +3,10 @@ const path = require("path");
 const { getUserContent } = require("./user");
 const { getWebFingerContent } = require("./webfinger");
 const { getOutboxContent, getOutboxItemsContent } = require("./outbox");
-const { getUserProfileContent } = require("./html-user");
+const {
+    getUserProfileContent,
+    getUserProfileContentPaginated,
+} = require("./html-user");
 const { getUserFeedContent } = require("./feed-user");
 const { getHostMetaContent } = require("./host-meta");
 const { getItemHTMLContent } = require("./html-item");
@@ -18,7 +21,7 @@ const config = {
     language: "en",
     publicKeyPem:
         "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4wKicIqgIrW0QVHOn9kb\nItsMevLFO1ky63gU2FWErGECH4Vg7DLnQyo+7M2qoV3WSnpkBNeBYDzC3Zb6q95Q\nREk3kmcTLjeQEaSN5fvEqpWzAcL+n3Y/lfXGBZO/XXAgw0uMWDXBYyEqQ0HST8F3\n13B6E0DSZmUa6H+ouYC7azMCrU13jnPaf5MvEK9GXvtbRLlLJ4sCMaOOZTBXdx1O\nJZIRQJIT7HraDonUJvFe5cJ4tRR7ElmnEGkd1A1R5AYL2AuMTsr+DIB4IjSCpXYg\n1+/+HrcMpiwvdsLwIgbB9keWAAkjlylkzttmupod+BZOdfxios69y7MEFiLkFvyb\nDQIDAQAB\n-----END PUBLIC KEY-----\n",
-    itemsPerPage: 20,
+    itemsPerPage: 100,
 };
 
 const root = path.resolve(`${process.cwd()}`);
@@ -28,6 +31,9 @@ const wellKnownDir = path.resolve(`${publicDir}/.well-known`);
 const userDir = path.resolve(`${publicDir}/users/${config.username}`);
 const outboxDir = path.resolve(`${userDir}/outbox`);
 const userProfileDir = path.resolve(`${publicDir}/@${config.username}`);
+const userProfileItemsDir = path.resolve(
+    `${publicDir}/@${config.username}/item`
+);
 
 function mustCreateDirectories(directories) {
     directories.forEach((d) => {
@@ -59,6 +65,7 @@ mustCreateDirectories([
     wellKnownDir,
     outboxDir,
     userProfileDir,
+    userProfileItemsDir,
 ]);
 
 fs.writeFileSync(
@@ -93,14 +100,25 @@ fs.writeFileSync(
 
 // Profile HTML Home page
 fs.writeFileSync(
-    `${userProfileDir}/index.html`,
+    `${userProfileDir}/all.html`,
     getUserProfileContent(config, content)
 );
+
+pages.forEach((items, pageNum) => {
+    const fileName =
+        pageNum === 0
+            ? `${userProfileDir}/index.html`
+            : `${userProfileDir}/${pageNum}.html`;
+    fs.writeFileSync(
+        fileName,
+        getUserProfileContentPaginated(config, items, content.length, pageNum)
+    );
+});
 
 // Items HTML pages
 content.forEach((item) => {
     fs.writeFileSync(
-        `${userProfileDir}/${item.id}.html`,
+        `${userProfileItemsDir}/${item.id}.html`,
         getItemHTMLContent(config, item)
     );
 });

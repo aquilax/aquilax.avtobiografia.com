@@ -5,7 +5,7 @@ const getUserHtmlProfileUrl = ({ hostname, username }) =>
     `https://${hostname}/@${username}`;
 
 const getItemHtmlUrl = ({ hostname, username, id }) =>
-    `https://${hostname}/@${username}/${id}.html`;
+    `https://${hostname}/@${username}/item/${id}.html`;
 
 const getImageUrl = ({ hostname, username, image }) =>
     `https://${hostname}/image/${username}/${image}`;
@@ -61,7 +61,8 @@ function getItemHTMLTemplate({ username, hostname, image, item }) {
     const humanDate = publishedDate.substring(0, 10);
     const content = item.content;
 
-    return `<li class="h-entry" id="post-id-${item.id}">
+    return `
+    <li class="h-entry" id="post-id-${item.id}">
         <div class="row">
             <div class="author u-author h-card">
                 <a href="${getUserHtmlProfileUrl({
@@ -97,8 +98,7 @@ function getItemHTMLTemplate({ username, hostname, image, item }) {
         item.source.name
     }</a>
         </div>
-    </li>
-`;
+    </li>`;
 }
 
 module.exports = {
@@ -108,6 +108,8 @@ module.exports = {
         `https://${hostname}/users/${username}/outbox/index.json`,
     getOutboxItemsUrl: ({ username, hostname, pageNum }) =>
         `https://${hostname}/users/${username}/outbox/${pageNum}.json`,
+    getProfileItemsUrl: ({ username, hostname, pageNum }) =>
+        `https://${hostname}/@${username}/${pageNum}.html`,
     getInboxUrl: ({ username, hostname }) =>
         `https://${hostname}/users/${username}/inbox/index.json`,
     getFollowersUrl: ({ username, hostname }) =>
