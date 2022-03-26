@@ -14,7 +14,7 @@ const parseContent = (t) =>
     }" rel="nofollow noopener noreferrer">${t.name}</a> by ${t.artists
         .map(
             (a) =>
-                `<a href="${t.external_urls.spotify}" rel="nofollow noopener noreferrer">${a.name}</a>`
+                `<a href="${a.external_urls.spotify}" rel="nofollow noopener noreferrer">${a.name}</a>`
         )
         .join(", ")}`;
 
