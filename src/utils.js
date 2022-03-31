@@ -10,6 +10,9 @@ const getItemHtmlUrl = ({ hostname, username, id }) =>
 const getImageUrl = ({ hostname, username, image }) =>
     `https://${hostname}/image/${username}/${image}`;
 
+const getTwTxtFeedUrl = ({ hostname, username }) =>
+    `https://${hostname}/@${username}/twtxt.txt`;
+
 function getHTMLTemplate({
     language,
     username,
@@ -122,4 +125,5 @@ module.exports = {
     getItemHTMLTemplate,
     getUserJsonFeedUrl,
     getItemHtmlUrl,
+    getTwTxtFeedUrl,
 };

@@ -10,6 +10,7 @@ const {
 const { getUserFeedContent } = require("./feed-user");
 const { getHostMetaContent } = require("./host-meta");
 const { getItemHTMLContent } = require("./html-item");
+const { getUserTwTxtFeedContent } = require("./feed-twttxt");
 
 const config = {
     username: "aquilax",
@@ -127,4 +128,10 @@ content.forEach((item) => {
 fs.writeFileSync(
     `${userProfileDir}/feed.json`,
     JSON.stringify(getUserFeedContent(config, content), null, 2)
+);
+
+// TWTXT feed
+fs.writeFileSync(
+    `${userProfileDir}/twtxt.txt`,
+    getUserTwTxtFeedContent(config, content)
 );
