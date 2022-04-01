@@ -21,6 +21,8 @@ function getUserFeedContent(config, content) {
             id: i.id,
             content_html: i.content,
             url: getItemHtmlUrl({ hostname, username, id: i.id }),
+            date_published: i.published,
+            language: i.lang,
         })),
     };
 }
