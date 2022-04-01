@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
+  "lang": "en",
+  "published": "2022-03-31T05:37:28.000Z",
+  "content": "I'd like to see more attention put into carving out a subset of Mastodon's functionality that would allow you to host your fediverse node on a static site, à la blog feeds powered by RSS/Atom. <a href=\"https://news.ycombinator.com/item?id=30862612\" rel=\"nofollow noopener noreferrer\">Mastodon 3.5 | Hacker News</a>",
+  "id": "7b00f418a39b61a71ba9031eb75c8cfe"
+}
