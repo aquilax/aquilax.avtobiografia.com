@@ -1,6 +1,9 @@
 const getUserJsonFeedUrl = ({ username, hostname }) =>
     `https://${hostname}/@${username}/feed.json`;
 
+const getUserJF2FeedUrl = ({ username, hostname }) =>
+    `https://${hostname}/@${username}/jf2feed.json`;
+
 const getUserHtmlProfileUrl = ({ hostname, username }) =>
     `https://${hostname}/@${username}`;
 
@@ -29,6 +32,9 @@ function getHTMLTemplate({
     <title>${title}</title>
     <link rel="me" href="${profilePage}" />
     <link rel="alternate" title="${username}" type="application/feed+json" href="${getUserJsonFeedUrl(
+        { username, hostname }
+    )}" />
+    <link rel="alternate" title="${username}" type="application/jf2feed+json" href="${getUserJF2FeedUrl(
         { username, hostname }
     )}" />
     <style>

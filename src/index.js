@@ -11,6 +11,7 @@ const { getUserFeedContent } = require("./feed-user");
 const { getHostMetaContent } = require("./host-meta");
 const { getItemHTMLContent } = require("./html-item");
 const { getUserTwTxtFeedContent } = require("./feed-twttxt");
+const { getUserJF2FeedContent } = require("./jf2feed-user");
 
 const config = {
     username: "aquilax",
@@ -128,6 +129,12 @@ content.forEach((item) => {
 fs.writeFileSync(
     `${userProfileDir}/feed.json`,
     JSON.stringify(getUserFeedContent(config, content), null, 2)
+);
+
+// JF2 Feed
+fs.writeFileSync(
+    `${userProfileDir}/jf2feed.json`,
+    JSON.stringify(getUserJF2FeedContent(config, content), null, 2)
 );
 
 // TWTXT feed
