@@ -12,6 +12,7 @@ const { getHostMetaContent } = require("./host-meta");
 const { getItemHTMLContent } = require("./html-item");
 const { getUserTwTxtFeedContent } = require("./feed-twttxt");
 const { getUserJF2FeedContent } = require("./jf2feed-user");
+const { getSitemapContent } = require("./feed-sitemap");
 
 const config = {
     username: "aquilax",
@@ -141,4 +142,10 @@ fs.writeFileSync(
 fs.writeFileSync(
     `${userProfileDir}/twtxt.txt`,
     getUserTwTxtFeedContent(config, content)
+);
+
+// sitemap.xml
+fs.writeFileSync(
+    `${publicDir}/sitemap.xml`,
+    getSitemapContent(config, content)
 );
