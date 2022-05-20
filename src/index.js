@@ -8,6 +8,7 @@ const {
     getUserProfileContentPaginated,
 } = require("./html-user");
 const { getUserFeedContent } = require("./feed-user");
+const { getUserAtomFeedContent } = require("./feed-user-atom");
 const { getHostMetaContent } = require("./host-meta");
 const { getItemHTMLContent } = require("./html-item");
 const { getUserTwTxtFeedContent } = require("./feed-twttxt");
@@ -130,6 +131,12 @@ content.forEach((item) => {
 fs.writeFileSync(
     `${userProfileDir}/feed.json`,
     JSON.stringify(getUserFeedContent(config, content), null, 2)
+);
+
+// Atom Feed
+fs.writeFileSync(
+    `${userProfileDir}/feed.atom.xml`,
+    getUserAtomFeedContent(config, content)
 );
 
 // JF2 Feed

@@ -1,6 +1,9 @@
 const getUserJsonFeedUrl = ({ username, hostname }) =>
     `https://${hostname}/@${username}/feed.json`;
 
+const getUserAtomFeedUrl = ({ username, hostname }) =>
+    `https://${hostname}/@${username}/feed.atom.xml`;
+
 const getUserJF2FeedUrl = ({ username, hostname }) =>
     `https://${hostname}/@${username}/jf2feed.json`;
 
@@ -15,6 +18,15 @@ const getImageUrl = ({ hostname, username, image }) =>
 
 const getTwTxtFeedUrl = ({ hostname, username }) =>
     `https://${hostname}/@${username}/twtxt.txt`;
+
+const escapeHtml = (unsafe) => {
+    return unsafe
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+};
 
 function getHTMLTemplate({
     language,
@@ -32,6 +44,9 @@ function getHTMLTemplate({
     <title>${title}</title>
     <link rel="me" href="${profilePage}" />
     <link rel="alternate" title="${username}" type="application/feed+json" href="${getUserJsonFeedUrl(
+        { username, hostname }
+    )}" />
+    <link rel="alternate" title="${username}" type="application/atom+xml" href="${getUserAtomFeedUrl(
         { username, hostname }
     )}" />
     <link rel="alternate" title="${username}" type="application/jf2feed+json" href="${getUserJF2FeedUrl(
@@ -130,6 +145,8 @@ module.exports = {
     getHTMLTemplate,
     getItemHTMLTemplate,
     getUserJsonFeedUrl,
+    getUserAtomFeedUrl,
     getItemHtmlUrl,
     getTwTxtFeedUrl,
+    escapeHtml,
 };
