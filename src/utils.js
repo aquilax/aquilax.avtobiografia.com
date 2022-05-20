@@ -100,7 +100,7 @@ function getItemHTMLTemplate({ username, hostname, image, item }) {
                     })}" width="48" alt="${username}"/>
                 </a>
             </div>
-            <p lang=${item.lang}>${content}</p>
+            <p class="e-content" lang=${item.lang}>${content}</p>
         </div>
         <div class="meta">
             <a rel="self" class="h-card u-url u-uid p-name" href="${getUserHtmlProfileUrl(
@@ -118,9 +118,9 @@ function getItemHTMLTemplate({ username, hostname, image, item }) {
                 <time datetime="${publishedDate}" class="dt-published">${humanDate}</time>
             </a>
             |
-            #<a href="${item.source.url}" rel="nofollow noopener noreferrer">${
-        item.source.name
-    }</a>
+            #<a class="u-syndication" href="${
+                item.source.url
+            }" rel="nofollow noopener noreferrer">${item.source.name}</a>
         </div>
     </li>`;
 }
