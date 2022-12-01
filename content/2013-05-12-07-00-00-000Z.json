@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "goodreads",
+    "url": "https://www.goodreads.com/review/show/612535930?utm_medium=api&utm_source=rss"
+  },
+  "lang": "en",
+  "published": "2013-05-12T07:00:00.000Z",
+  "content": "Finished reading <a href=\"https://www.goodreads.com/review/show/612535930?utm_medium=api&utm_source=rss\" rel=\"nofollow noopener noreferrer\">Computer Science Programming Basics in Ruby</a> by Ophir Frieder",
+  "id": "7b625d4134f2b7801dbf900fb5c31ad6"
+}

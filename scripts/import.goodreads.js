@@ -9,24 +9,24 @@ const root = path.resolve(`${process.cwd()}`);
 const contentDir = path.resolve(`${root}/content`);
 
 const parseContent = (r) =>
-    `New repository: <a href="${r.html_url}" rel="nofollow noopener noreferrer">${r.full_name}</a> - ${r.description}`;
+    `Finished reading <a href="${r.link}" rel="nofollow noopener noreferrer">${r.title}</a> by ${r.author}`;
 
 const getFilename = (date) => date.replace(/[^\dZ]/g, "-");
 
 const fileName = process.argv[2];
 const rawData = fs.readFileSync(fileName);
-const repositories = JSON.parse(rawData);
+const books = JSON.parse(rawData);
 
-repositories
-    .filter((r) => !r.fork && !r.archived && !r.private)
-    .map((r) => {
+Object.values(books)
+    .flatMap((b) => b)
+    .map((b) => {
         const item = {
             source: {
-                name: "github",
-                url: r.html_url,
+                name: "goodreads",
+                url: b.link,
             },
             lang: "en",
-            published: new Date(r.created_at).toISOString(),
+            published: new Date(r.marked_as_read).toISOString(),
             content: parseContent(r),
         };
         return { ...item, id: getItemId(item) };

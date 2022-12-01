@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "goodreads",
+    "url": "https://www.goodreads.com/review/show/5080542012?utm_medium=api&utm_source=rss"
+  },
+  "lang": "en",
+  "published": "2022-11-09T07:55:49.000Z",
+  "content": "Finished reading <a href=\"https://www.goodreads.com/review/show/5080542012?utm_medium=api&utm_source=rss\" rel=\"nofollow noopener noreferrer\">99 Bottles of OOP</a> by Sandi Metz",
+  "id": "73f6569fd855c211249143a9c1b7a7c5"
+}
