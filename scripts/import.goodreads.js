@@ -9,7 +9,7 @@ const root = path.resolve(`${process.cwd()}`);
 const contentDir = path.resolve(`${root}/content`);
 
 const parseContent = (r) =>
-    `Finished reading <a href="${r.link}" rel="nofollow noopener noreferrer">${r.title}</a> by ${r.author}`;
+    `📚 Finished reading <a href="${r.link}" rel="nofollow noopener noreferrer">${r.title}</a> by ${r.author}`;
 
 const getFilename = (date) => date.replace(/[^\dZ]/g, "-");
 
