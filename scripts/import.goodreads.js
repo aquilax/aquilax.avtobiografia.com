@@ -26,8 +26,8 @@ Object.values(books)
                 url: b.link,
             },
             lang: "en",
-            published: new Date(r.marked_as_read).toISOString(),
-            content: parseContent(r),
+            published: new Date(b.marked_as_read).toISOString(),
+            content: parseContent(b),
         };
         return { ...item, id: getItemId(item) };
     })
