@@ -1,0 +1,10 @@
+{
+  "source": {
+    "name": "vimwiki",
+    "url": "https://wiki.bazadanni.com/quotelog/"
+  },
+  "lang": "en",
+  "published": "2022-12-25T14:24:11.000Z",
+  "content": "Tests usually cannot prove absence of defects. But they can show presence of defects <a href=\"https://news.ycombinator.com/item?id=33945115\" rel=\"nofollow noopener noreferrer\">I found a bug in SQLite | Hacker News</a>",
+  "id": "7e1917f3f2ff5da3bac07058ef0387ec"
+}
